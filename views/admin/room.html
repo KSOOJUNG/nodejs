@@ -1,0 +1,94 @@
+<%- include("header.html") %>
+<div class="wrapper wrapper-content  animated fadeInRight">
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="ibox chat-view">
+
+                <div class="ibox-title">
+                    <small class="pull-right text-muted">最新消息：2015-02-02 18:39:23</small> 个人日志
+                </div>
+
+
+                <div class="ibox-content">
+
+                    <div class="row">
+
+                        <div class=" ">
+                            <div class="chat-discussion" id="discussion">
+                                
+                                <%result.forEach(function(item){%>
+                                    
+                                <div class="chat-message mystyle" >
+                                    <div class="message">
+                                        <a class="message-author" href="#"><%=username%></a>
+                                        <span class="message-date " style="margin-left: 300px"> <%=Time%> </span>
+                                        <span class="message-content">
+                                            <%=item.message%>
+                                        </span>
+                                            <a href="/admin/room/rodels?id=<%=item._id%>" type="button"
+                                                class="btn " style="font-size: 12px; float:right; margin-top:-10px;">删除</a>
+                                    </div>
+                                </div>
+                                <%})%>
+                            </div>
+
+                        </div>
+                        <!-- <div class="col-md-3">
+                            <div class="chat-users">
+
+
+                                <div class="users-list" id="usersList">
+
+                                </div>
+
+                            </div>
+                        </div> -->
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form action="roomtext" method="POST">
+                                <div class="chat-message-form">
+
+                                    <div class="form-group">
+
+                                        <textarea class="form-control message-input" id="message"
+                                            data-username="<%=username%>" name="message"
+                                            placeholder="输入消息内容，按回车键发送"></textarea>
+                                    </div>
+
+                                </div>
+                                <button class="btn btn-primary" type="submit" id="send">发表</button>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+<!-- 自定义js -->
+
+
+<%- include("footer.html") %>
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/jquery.validate.min.js"></script>
+
+<script>
+
+
+
+</script>

@@ -1,0 +1,55 @@
+<%- include("header.html") %>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>数据列表</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <!-- <div class="col-sm-6"> -->
+        <div class="ibox float-e-margins">
+
+            <div class="ibox-content">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>姓名</th>
+                            <th>type</th>
+                            <th>title</th>
+                            <th>songid</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% result.forEach(function(item){%>
+                        <tr>
+                            <td><%=item._id%></td>
+                            <td><%=item.author%></td>
+                            <td><%=item.type%></td>
+                            <td><%=item.title%></td>
+                            <td><%=item.songid%></td>
+                            <td>
+                                <a href="/admin/background/dels?id=<%=item._id%>" type="button"
+                                    class="btn btn-danger">删除</a>
+                            </td>
+                        </tr>
+                        <%})%>
+                    </tbody>
+                </table>
+
+                 <!-- 分页功能 -->
+                 <div class="btn-group">
+                    <% for(var i = 0; i < pageCount; i++){%>
+                        <a href="/admin/background?page=<%=i%>" class="btn btn-white"><%=i+1%></a>
+                    <%}%>
+                </div>
+                <!-- 分页功能 end-->
+
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</div>
+<%- include("footer.html") %>
